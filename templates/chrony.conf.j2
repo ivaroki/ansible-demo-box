@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+pool {{ ntpdns1 }} iburst
+pool {{ ntpdns2 }} iburst
+ 
+driftfile /var/lib/chrony/chrony.drift
+rtcsync
+makestep 1 3

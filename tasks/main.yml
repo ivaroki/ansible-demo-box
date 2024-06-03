@@ -1,0 +1,12 @@
+---
+- name: installing chrony package
+  package: name=chrony state=present
+  register: chronyinstalled
+  notify:
+    - start chrony
+
+- debug:
+    msg: host OS family - {{ ansible_os_family }} and distribution - {{ ansible_distribution }}
+
+- include_tasks: setup-{{ ansible_os_family | lower }}.yml
+...
