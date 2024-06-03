@@ -1,0 +1,8 @@
+---
+- name: configure chrony package - RedHat
+  when: chronyinstalled is success
+  template: src=chrony.conf.j2 dest=/etc/chrony.conf mode=0644
+  notify:
+    - restart chronyd
+    - start chronyd
+...
